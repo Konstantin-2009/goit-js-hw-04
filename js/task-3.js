@@ -1,14 +1,23 @@
-function filterArray(numbers, value) {
-  const arr = [];
-  for (const item of numbers) {
-    if (item > value) {
-      arr.push(item);
-    }
-  }
-  return arr;
-}
-console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
-console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
-console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
-console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
-console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
+// Об’єкт profile описує профіль користувача на ігровій платформі. У його властивостях зберігається ім’я профілю username та кількість активних годин playTime, проведених у грі.
+
+const profile = {
+  username: 'Jacob',
+  playTime: 300,
+  changeUsername(newName) {
+    return (this.username = newName);
+  },
+  updatePlayTime(hours) {
+    return (this.playTime += hours);
+  },
+  getInfo() {
+    return `${this.username} has ${this.playTime} active hours!`;
+  },
+};
+
+console.log(profile.getInfo()); // "Jacob has 300 active hours!"
+
+profile.changeUsername('Marco');
+console.log(profile.getInfo()); // "Marco has 300 active hours!"
+
+profile.updatePlayTime(20);
+console.log(profile.getInfo()); // "Marco has 320 active hours!"
